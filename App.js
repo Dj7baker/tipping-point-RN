@@ -1,55 +1,79 @@
 import * as React from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View, Button, Pressable } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import SignIn from "./SignIn";
-import Home from "./Home";
-import SignUp from "./SignUp";
+import SignIn from "./Components/SignIn";
+import Home from "./Components/Home";
+import SignUp from "./Components/SignUp";
+import Item from "./Components/Item";
+import Header from "./Components/Header";
 
 function HomeScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Welcome to Tipping Point</Text>
-      <Button
-        title="Sign In"
-        onPress={() => navigation.navigate("Sign In To Your Account")}
-      />
-      <Button
-        title="Sign Up"
-        onPress={() => navigation.navigate("Sign Up For An Account")}
-      />
-      <Button
-        title="Skip - view items"
-        onPress={() => navigation.navigate("ViewItems")}
-      />
-    </View>
-  );
+	return (
+		<View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+			<Text>Welcome to Tipping Point</Text>
+
+			<Pressable
+				style={styles.button}
+				onPress={() => navigation.navigate("Sign In To Your Account")}
+			>
+				<Text>Login</Text>
+			</Pressable>
+
+			<Pressable
+				style={styles.button}
+				onPress={() => navigation.navigate("Sign Up For An Account")}
+			>
+				<Text>Sign Up</Text>
+			</Pressable>
+			{/* <Button
+				title="Skip - view items"
+				onPress={() => navigation.navigate("ViewItems")}
+			/> */}
+			<Pressable
+				style={styles.button}
+				onPress={() => navigation.navigate("ViewItems")}
+			>
+				<Text>Skip - view items</Text>
+			</Pressable>
+		</View>
+	);
 }
 
 const Stack = createNativeStackNavigator();
 
 function App() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Welcome" component={HomeScreen} />
-        <Stack.Screen name="Sign In To Your Account" component={SignIn} />
-        <Stack.Screen name="Sign Up For An Account" component={SignUp} />
-        <Stack.Screen name="ViewItems" component={Home} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+	return (
+    <> 
+    <Header/>
+		<NavigationContainer>
+			<Stack.Navigator initialRouteName="Home">
+				<Stack.Screen name="Welcome" component={HomeScreen} />
+				<Stack.Screen name="Sign In To Your Account" component={SignIn} />
+				<Stack.Screen name="Sign Up For An Account" component={SignUp} />
+				<Stack.Screen name="ViewItems" component={Home} />
+				<Stack.Screen name="Item" component={Item} />
+			</Stack.Navigator>
+		</NavigationContainer>
+    </>
+	);
 }
 
 export default App;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 40,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
+	container: {
+		flex: 1,
+		paddingTop: 40,
+		backgroundColor: "#fff",
+		alignItems: "center",
+		justifyContent: "center",
+	},
+	button: {
+		padding: 10,
+		borderRadius: 5,
+		borderWidth: 2,
+		backgroundColor: "green",
+	},
 });
