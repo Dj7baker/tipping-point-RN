@@ -13,7 +13,7 @@ import { getItems } from "../api";
 export default function Home({ navigation }) {
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
+  const today = new Date();
   useEffect(() => {
     getItems().then((result) => {
       setItems(result);
