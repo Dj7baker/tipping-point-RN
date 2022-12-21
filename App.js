@@ -8,25 +8,41 @@ import Home from "./Components/Home";
 import SignUp from "./Components/SignUp";
 import Item from "./Components/Item";
 import Header from "./Components/Header";
+import Login from "./Screens/Login";
+import Register from "./Screens/Register";
+import Chat from "./Screens/Chat";
+
+
 
 function HomeScreen({ navigation }) {
 	return (
 		<View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
 			<Text>Welcome to Tipping Point</Text>
-
-			<Pressable
+      <Pressable
+				style={styles.button}
+				onPress={() => navigation.navigate("Login")}
+			>
+				<Text>LOGIN</Text>
+			</Pressable>
+      <Pressable
+				style={styles.button}
+				onPress={() => navigation.navigate("Register")}
+			>
+				<Text>Register</Text>
+			</Pressable>
+			{/* <Pressable
 				style={styles.button}
 				onPress={() => navigation.navigate("Sign In To Your Account")}
 			>
 				<Text>Login</Text>
-			</Pressable>
+			</Pressable> */}
 
-			<Pressable
+			{/* <Pressable
 				style={styles.button}
 				onPress={() => navigation.navigate("Sign Up For An Account")}
 			>
 				<Text>Sign Up</Text>
-			</Pressable>
+			</Pressable> */}
 			{/* <Button
 				title="Skip - view items"
 				onPress={() => navigation.navigate("ViewItems")}
@@ -43,6 +59,7 @@ function HomeScreen({ navigation }) {
 
 const Stack = createNativeStackNavigator();
 
+
 function App() {
 	return (
     <> 
@@ -50,8 +67,11 @@ function App() {
 		<NavigationContainer>
 			<Stack.Navigator initialRouteName="Home">
 				<Stack.Screen name="Welcome" component={HomeScreen} />
-				<Stack.Screen name="Sign In To Your Account" component={SignIn} />
-				<Stack.Screen name="Sign Up For An Account" component={SignUp} />
+        <Stack.Screen name='Register' component={Register} />
+        <Stack.Screen name='Login' component={Login} />
+        <Stack.Screen name='Chat' component={Chat} />
+				{/* <Stack.Screen name="Sign In To Your Account" component={SignIn} /> */}
+				{/* <Stack.Screen name="Sign Up For An Account" component={SignUp} /> */}
 				<Stack.Screen name="ViewItems" component={Home} />
 				<Stack.Screen name="Item" component={Item} />
 			</Stack.Navigator>
