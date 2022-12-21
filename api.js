@@ -1,13 +1,23 @@
 import axios from "axios";
 
-const newsApi = axios.create({
-  baseURL: "https://dp-api.cyclic.app",
+const tippingpointApi = axios.create({
+  baseURL: "http://localhost:3001",
 });
 
-export const getArticles = (topic, sort_by, order) => {
-  return newsApi
-    .get("/api/articles", { params: { topic, sort_by, order } })
-    .then((res) => {
-      return res.data.articles;
-    });
+export const getItems = () => {
+  return tippingpointApi.get("/items").then((res) => {
+    return res.data;
+  });
+};
+
+export const getItemById = (id) => {
+  return tippingpointApi.get(`/items/${id}`).then((res) => {
+    return res.data;
+  });
+};
+
+export const postItem = (obj) => {
+  return tippingpointApi.post(`/items/`, obj).then((res) => {
+    return res.data;
+  });
 };
