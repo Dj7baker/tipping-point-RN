@@ -20,6 +20,28 @@ export default function Home({ navigation }) {
       setIsLoading(false);
     });
   }, []);
+
+  const calculateTimeRemaining = (unixEndTime) => {
+    const today = Date.now();
+    let delta = Math.abs(unixEndTime - today) / 1000;
+    const days = Math.floor(delta / 86400);
+    delta -= days * 86400;
+    const hours = Math.floor(delta / 3600) % 24;
+    delta -= hours * 3600;
+    const minutes = Math.floor(delta / 60) % 60;
+    delta -= minutes * 60;
+
+    let timeout = "";
+    if (days > 0) {
+      timeout = `${days} days, ${hours} hours and ${minutes} minutes remaining`;
+    } else if (days < 1) {
+      timeout = `${hours} hours and ${minutes} minutes remaining`;
+    } else if (days < 1 && hours < 1) {
+      timeout = `${minutes} minutes remaining`;
+    }
+    return timeout;
+  };
+
   return (
     <ScrollView>
       <View>
@@ -27,6 +49,8 @@ export default function Home({ navigation }) {
           <Text>Loading Items</Text>
         ) : (
           items.map((item) => {
+            const timeout = calculateTimeRemaining(item.endDate);
+
             return (
               <Pressable
                 key={item.id}
@@ -45,7 +69,7 @@ export default function Home({ navigation }) {
                     borderColor: "#bebebe",
                   }}
                 />
-                <View style={{ marginLeft: 20 }}>
+                <View style={{ marginLeft: 20, flex: 1 }}>
                   <Text
                     style={{
                       fontSize: 20,
@@ -56,6 +80,7 @@ export default function Home({ navigation }) {
                   >
                     {item.title}
                   </Text>
+
                   <Text>{item.condition}</Text>
 
                   <Text>{item.likes} Likes</Text>
@@ -73,6 +98,7 @@ export default function Home({ navigation }) {
                   >
                     <Text style={{ color: "white" }}>Shortlist</Text>
                   </Pressable>
+                  <Text>{timeout}</Text>
                 </View>
               </Pressable>
             );

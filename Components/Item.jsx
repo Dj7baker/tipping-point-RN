@@ -14,6 +14,7 @@ export default function Item({ route, navigation }) {
       setIsLoading(false);
     });
   }, [item_id]);
+
   return isLoading ? (
     <Text>Loading Item</Text>
   ) : (
