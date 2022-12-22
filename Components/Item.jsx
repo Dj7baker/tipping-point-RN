@@ -1,4 +1,4 @@
-import { Text, View, Image, StyleSheet } from "react-native";
+import { Text, View, Image, StyleSheet, Pressable } from "react-native";
 import { useState, useEffect } from "react";
 import { getItemById } from "../api";
 
@@ -43,6 +43,12 @@ export default function Item({ route, navigation }) {
         {item.condition} | {item.likes} Likes
       </Text>
       <Text style={{ marginTop: 20 }}>{item.description}</Text>
+      <Pressable
+				style={styles.button}
+				onPress={() => navigation.navigate("Chat")}
+			>
+				<Text>Message</Text>
+			</Pressable>
     </View>
   );
 }
@@ -56,4 +62,18 @@ const styles = StyleSheet.create({
     margin: 10,
     backgroundColor: "#FFF",
   },
+  button: {
+		width: "60%",
+		padding: 10,
+		borderRadius: 5,
+		borderWidth: 1,
+		backgroundColor: "#417969",
+		margin: 5,
+		textAlign: "center",
+	},
+	buttonText: {
+		color: "white",
+		textAlign: "center",
+		fontWeight: "bold",
+	},
 });
