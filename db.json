@@ -19,12 +19,31 @@
       "id": 2
     },
     {
-      "title": "",
-      "description": "",
+      "title": "A new Item",
+      "description": "Some words",
       "likes": 0,
-      "date": "2022-12-21T11:39:26.966Z",
-      "endDate": null,
-      "id": 3
+      "condition": "Used",
+      "date": "2022-12-21T13:41:10.831Z",
+      "endDate": 1671889270831,
+      "id": 4
+    },
+    {
+      "title": "Something",
+      "description": "Dsfsadgdasfghdsfh",
+      "likes": 0,
+      "condition": "Used",
+      "date": "2022-12-21T14:08:12.662Z",
+      "endDate": 1671718092662,
+      "id": 5
+    },
+    {
+      "title": "Dsgadsfghdafh",
+      "description": "Dfhdfahdsaf",
+      "likes": 0,
+      "condition": "Used",
+      "date": "2022-12-22T08:48:50.434Z",
+      "endDate": 1672303730434,
+      "id": 6
     }
   ]
 }

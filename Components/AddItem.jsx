@@ -16,7 +16,7 @@ import * as ImagePicker from "expo-image-picker";
 
 export default function AddItem() {
   const [condition, setCondition] = useState();
-  const [endDate, setEndDate] = useState();
+  const [endDate, setEndDate] = useState("259200000");
   const [image, setImage] = useState(null);
 
   const pickImage = async () => {
@@ -71,10 +71,15 @@ export default function AddItem() {
         >
           {(props) => (
             <View>
-              <Button
-                title="Pick an image from camera roll"
-                onPress={pickImage}
-              />
+              {image ? (
+                <Button title="Change Image" onPress={pickImage} />
+              ) : (
+                <Button
+                  title="Pick an image from camera roll"
+                  onPress={pickImage}
+                />
+              )}
+
               {image && (
                 <Image
                   source={{ uri: image }}
