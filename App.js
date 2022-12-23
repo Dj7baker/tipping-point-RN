@@ -12,8 +12,10 @@ import Login from "./Screens/Login";
 import Register from "./Screens/Register";
 import Chat from "./Screens/Chat";
 import AddItem from "./Components/AddItem";
+import {useState} from "react";
 
-function HomeScreen({ navigation }) {
+
+function HomeScreen({ navigation}) {
 	return (
 		<View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
 			<Text>Welcome to Tipping Point</Text>
@@ -29,23 +31,6 @@ function HomeScreen({ navigation }) {
 			>
 				<Text>Register</Text>
 			</Pressable>
-			{/* <Pressable
-				style={styles.button}
-				onPress={() => navigation.navigate("Sign In To Your Account")}
-			>
-				<Text>Login</Text>
-			</Pressable> */}
-
-			{/* <Pressable
-				style={styles.button}
-				onPress={() => navigation.navigate("Sign Up For An Account")}
-			>
-				<Text>Sign Up</Text>
-			</Pressable> */}
-			{/* <Button
-				title="Skip - view items"
-				onPress={() => navigation.navigate("ViewItems")}
-			/> */}
 			<Pressable
 				style={styles.button}
 				onPress={() => navigation.navigate("View Items")}
@@ -59,12 +44,13 @@ function HomeScreen({ navigation }) {
 				<Text style={styles.buttonText}>List An Item</Text>
 			</Pressable>
 		</View>
-	);
+	)
 }
 
 const Stack = createNativeStackNavigator();
 
 function App() {
+	const [signedIn, setSignedIn] = useState(false)
 	return (
 		<>
 			<Header />
@@ -74,7 +60,7 @@ function App() {
 					<Stack.Screen name="Sign In To Your Account" component={SignIn} />
 					<Stack.Screen name="Sign Up For An Account" component={SignUp} />
 					<Stack.Screen name="Register" component={Register} />
-					<Stack.Screen name="Login" component={Login} />
+					<Stack.Screen name="Login" children={(props) => <Login signedIn={signedIn} setSignedIn={setSignedIn}/>}/>
 					<Stack.Screen name="Chat" component={Chat} />
 					<Stack.Screen name="View Items" component={Home} />
 					<Stack.Screen name="Item" component={Item} />

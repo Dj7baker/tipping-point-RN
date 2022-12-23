@@ -5,9 +5,10 @@ import { auth } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import Icon from "react-native-vector-icons/FontAwesome";
 
-const Login = ({ navigation }) => {
+const Login = ({ navigation, signedIn, setSignedIn }) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	console.log(signedIn)
 
 	const openRegisterScreen = () => {
 		navigation.navigate("Register");
@@ -16,6 +17,7 @@ const Login = ({ navigation }) => {
 	const signin = () => {
 		signInWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
+				setSignedIn(true)
 				navigation.navigate("View Items");
 			})
 			.catch((error) => {
