@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { View, StyleSheet } from "react-native";
 import { Input, Button } from "react-native-elements";
 import { auth } from "../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { UserContext } from "../Context/UserContext";
 
 const Login = ({ navigation }) => {
+	const { setSignedIn, signedIn } = useContext(UserContext);
+	console.log(setSignedIn, signedIn);
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
@@ -16,6 +19,7 @@ const Login = ({ navigation }) => {
 	const signin = () => {
 		signInWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
+				setSignedIn(userCredential);
 				navigation.navigate("View Items");
 			})
 			.catch((error) => {

@@ -12,6 +12,9 @@ import Login from "./Screens/Login";
 import Register from "./Screens/Register";
 import Chat from "./Screens/Chat";
 import AddItem from "./Components/AddItem";
+import { UserProvider } from "./Context/UserContext";
+import { signOut } from "firebase/auth";
+import { auth } from "./firebase";
 
 function HomeScreen({ navigation }) {
 	return (
@@ -22,6 +25,22 @@ function HomeScreen({ navigation }) {
 				onPress={() => navigation.navigate("Login")}
 			>
 				<Text>LOGIN</Text>
+			</Pressable>
+			<Pressable
+				style={styles.button}
+				onPress={() => {
+					signOut(auth)
+						.then(() => {
+							// Sign-out successful.
+							// navigation.replace("Login");
+							console.log("Signed out");
+						})
+						.catch((error) => {
+							// An error happened.
+						});
+				}}
+			>
+				<Text>LOGOUT</Text>
 			</Pressable>
 			<Pressable
 				style={styles.button}
@@ -66,7 +85,7 @@ const Stack = createNativeStackNavigator();
 
 function App() {
 	return (
-		<>
+		<UserProvider>
 			<Header />
 			<NavigationContainer>
 				<Stack.Navigator initialRouteName="Home">
@@ -81,7 +100,7 @@ function App() {
 					<Stack.Screen name="Add Item" component={AddItem} />
 				</Stack.Navigator>
 			</NavigationContainer>
-		</>
+		</UserProvider>
 	);
 }
 

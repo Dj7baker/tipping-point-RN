@@ -48,7 +48,7 @@ const Chat = ({ navigation }) => {
 						marginRight: 10,
 					}}
 					// onPress={signOutNow}
-					onPress={() => navigation.navigate("View Items")}
+					onPress={() => navigation.navigate("Welcome")}
 				>
 					{/* <Text>logout</Text> */}
 					<Text>Home</Text>
