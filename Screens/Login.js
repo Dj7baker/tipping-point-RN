@@ -10,6 +10,7 @@ const Login = ({ navigation }) => {
 	const { setSignedIn, signedIn } = useContext(UserContext);
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	console.log(signedIn);
 
 	const openRegisterScreen = () => {
 		navigation.navigate("Register");
