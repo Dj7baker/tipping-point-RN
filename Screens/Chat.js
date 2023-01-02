@@ -18,18 +18,21 @@ import {
 	onSnapshot,
 } from "firebase/firestore";
 
-const Chat = ({ navigation }) => {
+const Chat = ({ navigation, route }) => {
+	const { chatName } = route.params;
+
+	console.log(chatName);
 	const [messages, setMessages] = useState([]);
-	const signOutNow = () => {
-		signOut(auth)
-			.then(() => {
-				// Sign-out successful.
-				navigation.replace("Login");
-			})
-			.catch((error) => {
-				// An error happened.
-			});
-	};
+	// const signOutNow = () => {
+	// 	signOut(auth)
+	// 		.then(() => {
+	// 			// Sign-out successful.
+	// 			navigation.replace("Login");
+	// 		})
+	// 		.catch((error) => {
+	// 			// An error happened.
+	// 		});
+	// };
 	useLayoutEffect(() => {
 		navigation.setOptions({
 			headerLeft: () => (
@@ -56,7 +59,10 @@ const Chat = ({ navigation }) => {
 			),
 		});
 
-		const q = query(collection(db, "chats"), orderBy("createdAt", "desc"));
+		const q = query(
+			collection(db, `${chatName}`),
+			orderBy("createdAt", "desc")
+		);
 		const unsubscribe = onSnapshot(q, (snapshot) =>
 			setMessages(
 				snapshot.docs.map((doc) => ({
@@ -76,7 +82,7 @@ const Chat = ({ navigation }) => {
 	const onSend = useCallback((messages = []) => {
 		const { _id, createdAt, text, user } = messages[0];
 
-		addDoc(collection(db, "chats"), { _id, createdAt, text, user });
+		addDoc(collection(db, `${chatName}`), { _id, createdAt, text, user });
 	}, []);
 
 	return (

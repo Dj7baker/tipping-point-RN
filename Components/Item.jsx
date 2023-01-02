@@ -50,7 +50,9 @@ export default function Item({ route, navigation }) {
 				style={styles.button}
 				onPress={() => {
 					if (signedIn) {
-						navigation.navigate("Chat");
+						navigation.replace("Chat", {
+							chatName: `${item.id}+${signedIn.user.uid}`,
+						});
 					} else {
 						navigation.navigate("Login");
 					}

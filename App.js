@@ -15,6 +15,7 @@ import AddItem from "./Components/AddItem";
 import { UserProvider } from "./Context/UserContext";
 import { signOut } from "firebase/auth";
 import { auth } from "./firebase";
+import ChatList from "./Components/ChatList";
 
 function HomeScreen({ navigation }) {
 	return (
@@ -24,7 +25,7 @@ function HomeScreen({ navigation }) {
 				style={styles.button}
 				onPress={() => navigation.navigate("Login")}
 			>
-				<Text>LOGIN</Text>
+				<Text style={styles.buttonText}>LOGIN</Text>
 			</Pressable>
 			<Pressable
 				style={styles.button}
@@ -40,31 +41,14 @@ function HomeScreen({ navigation }) {
 						});
 				}}
 			>
-				<Text>LOGOUT</Text>
+				<Text style={styles.buttonText}>LOGOUT</Text>
 			</Pressable>
 			<Pressable
 				style={styles.button}
 				onPress={() => navigation.navigate("Register")}
 			>
-				<Text>Register</Text>
+				<Text style={styles.buttonText}>Register</Text>
 			</Pressable>
-			{/* <Pressable
-				style={styles.button}
-				onPress={() => navigation.navigate("Sign In To Your Account")}
-			>
-				<Text>Login</Text>
-			</Pressable> */}
-
-			{/* <Pressable
-				style={styles.button}
-				onPress={() => navigation.navigate("Sign Up For An Account")}
-			>
-				<Text>Sign Up</Text>
-			</Pressable> */}
-			{/* <Button
-				title="Skip - view items"
-				onPress={() => navigation.navigate("ViewItems")}
-			/> */}
 			<Pressable
 				style={styles.button}
 				onPress={() => navigation.navigate("View Items")}
@@ -76,6 +60,12 @@ function HomeScreen({ navigation }) {
 				onPress={() => navigation.navigate("Add Item")}
 			>
 				<Text style={styles.buttonText}>List An Item</Text>
+			</Pressable>
+			<Pressable
+				style={styles.button}
+				onPress={() => navigation.navigate("Chat List")}
+			>
+				<Text style={styles.buttonText}>Chats</Text>
 			</Pressable>
 		</View>
 	);
@@ -98,6 +88,7 @@ function App() {
 					<Stack.Screen name="View Items" component={Home} />
 					<Stack.Screen name="Item" component={Item} />
 					<Stack.Screen name="Add Item" component={AddItem} />
+					<Stack.Screen name="Chat List" component={ChatList} />
 				</Stack.Navigator>
 			</NavigationContainer>
 		</UserProvider>

@@ -8,7 +8,6 @@ import { UserContext } from "../Context/UserContext";
 
 const Login = ({ navigation }) => {
 	const { setSignedIn, signedIn } = useContext(UserContext);
-	console.log(setSignedIn, signedIn);
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
