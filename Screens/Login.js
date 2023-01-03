@@ -6,21 +6,22 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { UserContext } from "../Context/UserContext";
 
-const Login = ({ navigation }) => {
+const Login = ({ navigation, setDisplayRegister }) => {
 	const { setSignedIn, signedIn } = useContext(UserContext);
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	console.log(signedIn);
 
 	const openRegisterScreen = () => {
-		navigation.navigate("Register");
+		setDisplayRegister(true);
+		// navigation.navigate("Register");
 	};
 
 	const signin = () => {
 		signInWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
 				setSignedIn(userCredential);
-				navigation.navigate("View Items");
+				// navigation.navigate("View Items");
 			})
 			.catch((error) => {
 				const errorCode = error.code;
