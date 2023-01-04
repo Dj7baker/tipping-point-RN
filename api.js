@@ -29,11 +29,21 @@ export const postItem = (obj) => {
 };
 
 export const postUser = (obj) => {
-	return tippingpointApi.post('/users', obj).then((res) => {
-		return res.data
-	})
-}
-
-
-
-
+	return tippingpointApi.post("/users", obj).then((res) => {
+		return res.data;
+	});
+};
+export const patchItem = (id) => {
+	return tippingpointApi
+		.get(`/items/${id}`)
+		.then((res) => {
+			const item = res.data;
+			item.likes++;
+			return item;
+		})
+		.then((res) => {
+			return tippingpointApi.put(`/items/${id}`, res).then((res) => {
+				return res.data;
+			});
+		});
+};

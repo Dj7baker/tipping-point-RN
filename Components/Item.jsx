@@ -9,7 +9,7 @@ export default function Item({ route, navigation }) {
 
 	const [item, setItem] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
-console.log('item component', signedIn.user.email);
+	console.log("item component", signedIn.user.email);
 	useEffect(() => {
 		getItemById(item_id).then((result) => {
 			setItem(result);
@@ -20,7 +20,11 @@ console.log('item component', signedIn.user.email);
 		<Text>Loading Item</Text>
 	) : (
 		<View style={styles.card}>
-			<Button title='Back' onPress={() => navigation.navigate("Home")} />
+			<Button
+				// style={{ float: "left" }}
+				title="Back"
+				onPress={() => navigation.navigate("Home")}
+			/>
 			<Text
 				style={{
 					fontSize: "24",
@@ -55,7 +59,6 @@ console.log('item component', signedIn.user.email);
 						navigation.jumpTo("Chat", {
 							// chatName: `${item.id}+${signedIn.user.uid}`,
 							chatName: `${item.user_id}+${signedIn.user.uid}`,
-
 						});
 					} else {
 						navigation.navigate("Login");

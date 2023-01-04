@@ -23,7 +23,7 @@ export default function Header() {
 			<Text style={styles.title}>Tipping Point</Text>
 			{signedIn ? (
 				<TouchableOpacity onPress={() => signOutNow()}>
-					<Text style={styles.text}>Logout</Text>
+					<Text style={{ color: "white", fontWeight: "bold" }}>Logout</Text>
 				</TouchableOpacity>
 			) : (
 				<Text style={styles.text} />

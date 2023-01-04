@@ -95,7 +95,7 @@ export default function AddItem({ navigation }) {
 							condition: condition,
 							date: new Date(),
 							endDate: today + itemExpiry,
-							user_id: signedIn.user.uid
+							user_id: signedIn.user.uid,
 						};
 
 						postItem(newItem).then((result) => {

@@ -26,148 +26,63 @@
   "items": [
     {
       "title": "A toaster",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-      "likes": 0,
+      "description": "pre-owned bread heating device.",
+      "likes": 2,
       "condition": "Used",
       "date": "2022-12-21T10:44:23.153Z",
       "endDate": 1671878663147,
-      "id": 1
+      "id": 1,
+      "image": "https://m.media-amazon.com/images/I/61fr-ijEg9L.jpg"
     },
     {
-      "title": "An item with seven days",
-      "description": "Blah blah blah",
-      "likes": 0,
+      "title": "Scratch Post",
+      "description": "partially scratched castle for cats",
+      "likes": 2,
       "condition": "Used",
       "date": "2022-12-21T11:04:24.940Z",
       "endDate": 1672225464938,
-      "id": 2
+      "id": 2,
+      "image": "https://cdn.agradiservices.net/products/555x555/bz-0408849.eebffd.jpg"
     },
     {
-      "title": "A new Item",
-      "description": "Some words",
+      "title": "A bike",
+      "description": "Two wheels and a seat, fron wheel punctured",
       "likes": 0,
       "condition": "Used",
       "date": "2022-12-21T13:41:10.831Z",
       "endDate": 1671889270831,
-      "id": 4
+      "id": 4,
+      "image": "https://surlybikes.com/uploads/pages/Skidloader_Web_Home_Banner_1500x1000_VF.jpg"
     },
     {
-      "title": "Something",
-      "description": "Dsfsadgdasfghdsfh",
+      "title": "Microwave",
+      "description": "uses harmful radiaiton to heat up food",
       "likes": 0,
       "condition": "Used",
       "date": "2022-12-21T14:08:12.662Z",
       "endDate": 1671718092662,
-      "id": 5
+      "id": 5,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/65/Microwave_2022.jpg"
     },
     {
-      "title": "Dsgadsfghdafh",
-      "description": "Dfhdfahdsaf",
+      "title": "Crockery",
+      "description": "",
       "likes": 0,
       "condition": "Used",
       "date": "2022-12-22T08:48:50.434Z",
       "endDate": 1672303730434,
-      "id": 6
+      "id": 6,
+      "image": "https://4.imimg.com/data4/MB/MI/MY-6389443/crockery-set-500x500.jpg"
     },
     {
-      "title": "",
+      "title": "Dressing Gown",
       "description": "",
-      "likes": 0,
+      "likes": 2,
       "condition": "Upcycle Project",
       "date": "2023-01-04T12:00:32.648Z",
       "endDate": 1673092832648,
-      "id": 7
-    },
-    {
-      "title": "",
-      "description": "",
-      "likes": 0,
-      "condition": "Upcycle Project",
-      "date": "2023-01-04T12:00:45.205Z",
-      "endDate": 1673438445205,
-      "id": 8
-    },
-    {
-      "title": "Plant",
-      "description": "Plant",
-      "likes": 0,
-      "condition": "Used",
-      "date": "2023-01-04T12:01:52.568Z",
-      "endDate": 1673092912568,
-      "id": 9
-    },
-    {
-      "title": "Leaf",
-      "description": "Leaf",
-      "likes": 0,
-      "condition": "As New",
-      "date": "2023-01-04T12:07:14.127Z",
-      "endDate": 1673093234127,
-      "id": 10
-    },
-    {
-      "title": "Ball",
-      "description": "Ball",
-      "likes": 0,
-      "condition": "Used",
-      "date": "2023-01-04T12:10:47.936Z",
-      "endDate": 1672920647936,
-      "id": 11
-    },
-    {
-      "title": "Chair",
-      "description": "Chair",
-      "likes": 0,
-      "condition": "Used",
-      "date": "2023-01-04T12:17:31.566Z",
-      "endDate": 1672921051566,
-      "id": 12
-    },
-    {
-      "title": "Table",
-      "description": "Table",
-      "likes": 0,
-      "condition": "As New",
-      "date": "2023-01-04T12:22:19.952Z",
-      "endDate": 1673094139952,
-      "id": 13
-    },
-    {
-      "title": "Pen",
-      "description": "Pen",
-      "likes": 0,
-      "condition": "As New",
-      "date": "2023-01-04T12:24:53.068Z",
-      "endDate": 1673094293068,
-      "id": 14
-    },
-    {
-      "title": "Headphones",
-      "description": "HEadphoines",
-      "likes": 0,
-      "condition": "Used",
-      "date": "2023-01-04T12:42:27.683Z",
-      "endDate": 1673440947683,
-      "id": 15
-    },
-    {
-      "title": "Coffee Cup",
-      "description": "sakjhfhdskjghasdfkjh",
-      "likes": 0,
-      "condition": "Used",
-      "date": "2023-01-04T13:36:57.810Z",
-      "endDate": 1672925817810,
-      "id": 16
-    },
-    {
-      "title": "A better pen",
-      "description": "Loads of ink left, hardly chewed.",
-      "likes": 0,
-      "condition": "Used",
-      "date": "2023-01-04T15:31:22.794Z",
-      "endDate": 1672932682794,
-      "user_id": "uPXawEKlXMOzg3cuji9I3x2Mu4z1",
-      "id": 17
+      "id": 7,
+      "image": "https://i.pinimg.com/originals/7c/a6/23/7ca62354760b8fa91e150dd3dffea0a4.jpg"
     }
   ]
 }

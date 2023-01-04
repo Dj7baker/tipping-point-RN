@@ -8,7 +8,7 @@ import {
 	Image,
 } from "react-native";
 import { useState, useEffect } from "react";
-import { getItems } from "../api";
+import { getItems, patchItem } from "../api";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Item from "./Item";
@@ -27,8 +27,16 @@ export default function Home({ navigation }) {
 	}, []);
 
 	items.sort((a, b) => {
-		return a.id < b.id
-	})
+		return a.id < b.id;
+	});
+
+	function likeItem(id) {
+		patchItem(id).then((res) => {
+			getItems().then((result) => {
+				setItems(result);
+			});
+		});
+	}
 
 	const calculateTimeRemaining = (unixEndTime) => {
 		const today = Date.now();
@@ -59,7 +67,6 @@ export default function Home({ navigation }) {
 				{isLoading ? (
 					<Text>Loading Items</Text>
 				) : (
-					
 					items.map((item) => {
 						const timeout = calculateTimeRemaining(item.endDate);
 						return (
@@ -94,7 +101,7 @@ export default function Home({ navigation }) {
 									<Text>{item.condition}</Text>
 
 									<Text>{item.likes} Likes</Text>
-									<Text>{timeout}</Text>
+									<Text style={{ fontWeight: "bold" }}>{timeout} ⏳</Text>
 									<Pressable
 										style={{
 											borderRadius: 5,
@@ -104,10 +111,10 @@ export default function Home({ navigation }) {
 											backgroundColor: "#417969",
 										}}
 										onPress={() => {
-											console.log("hello");
+											likeItem(item.id); // console.log("hello");
 										}}
 									>
-										<Text style={{ color: "white" }}>Shortlist</Text>
+										<Text style={{ color: "white" }}>Like</Text>
 									</Pressable>
 								</View>
 							</Pressable>
