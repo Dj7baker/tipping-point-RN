@@ -13,6 +13,16 @@
       "image": "https://www.ikea.com/gb/en/images/products/tillreda-microwave-oven-white__1076734_pe856842_s5.jpg?f=s"
     }
   ],
+  "users": [
+    {
+      "email": "Cat@cat.com",
+      "id": 1
+    },
+    {
+      "id": "uPXawEKlXMOzg3cuji9I3x2Mu4z1",
+      "email": "Test4@test.com"
+    }
+  ],
   "items": [
     {
       "title": "A toaster",
@@ -130,6 +140,34 @@
       "date": "2023-01-04T12:24:53.068Z",
       "endDate": 1673094293068,
       "id": 14
+    },
+    {
+      "title": "Headphones",
+      "description": "HEadphoines",
+      "likes": 0,
+      "condition": "Used",
+      "date": "2023-01-04T12:42:27.683Z",
+      "endDate": 1673440947683,
+      "id": 15
+    },
+    {
+      "title": "Coffee Cup",
+      "description": "sakjhfhdskjghasdfkjh",
+      "likes": 0,
+      "condition": "Used",
+      "date": "2023-01-04T13:36:57.810Z",
+      "endDate": 1672925817810,
+      "id": 16
+    },
+    {
+      "title": "A better pen",
+      "description": "Loads of ink left, hardly chewed.",
+      "likes": 0,
+      "condition": "Used",
+      "date": "2023-01-04T15:31:22.794Z",
+      "endDate": 1672932682794,
+      "user_id": "uPXawEKlXMOzg3cuji9I3x2Mu4z1",
+      "id": 17
     }
   ]
 }

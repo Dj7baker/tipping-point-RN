@@ -4,6 +4,8 @@ import { Input, Button } from "react-native-elements";
 import { auth } from "../firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import axios from "axios";
+import { postUser } from "../api";
+
 
 const Register = ({ setDisplayRegister }) => {
 	const [name, setName] = useState("");
@@ -11,16 +13,18 @@ const Register = ({ setDisplayRegister }) => {
 	const [password, setPassword] = useState("");
 	const [avatar, setAvatar] = useState("");
 
-	const postUser = async (userInfo) => {
-		await axios.post("url", userInfo);
-	};
+	// const postUser = async (userInfo) => {
+	// 	console.log(userInfo);
+	// 	await axios.post("url", userInfo);
+	// };
 
 	const register = () => {
 		createUserWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
 				// Registered
-
+				// console.log(userCredential);
 				const user = userCredential.user;
+				console.log(user.uid);
 				updateProfile(user, {
 					displayName: name,
 					photoURL: avatar
@@ -34,7 +38,8 @@ const Register = ({ setDisplayRegister }) => {
 					.catch((error) => {
 						alert(error.message);
 					});
-				const essentialUserData = { id: userCredential.user.id, email };
+				const essentialUserData = { id: user.uid, email };
+
 				postUser(essentialUserData);
 			})
 			.catch((error) => {

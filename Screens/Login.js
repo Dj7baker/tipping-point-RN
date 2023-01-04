@@ -7,7 +7,7 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import { UserContext } from "../Context/UserContext";
 
 const Login = ({ navigation, setDisplayRegister }) => {
-	const { setSignedIn, signedIn } = useContext(UserContext);
+	const { setSignedIn, signedIn, setUser } = useContext(UserContext);
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	console.log(signedIn);
@@ -21,6 +21,7 @@ const Login = ({ navigation, setDisplayRegister }) => {
 		signInWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
 				setSignedIn(userCredential);
+				console.log(userCredential._tokenResponse.email);
 				// navigation.navigate("View Items");
 			})
 			.catch((error) => {

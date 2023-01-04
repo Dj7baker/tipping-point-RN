@@ -73,18 +73,19 @@ function MainApp() {
 			{signedIn ? (
 				<NavigationContainer>
 					<Drawer.Navigator initialRouteName="Home">
-						<Drawer.Screen name="Welcome" component={Home} />
+						{/* <Drawer.Screen name="Welcome" component={Home} /> */}
 						{/* <Drawer.Screen name="Register" component={Register} />
 						<Drawer.Screen name="Login" component={Login} /> */}
 						{/* <Drawer.Screen name="Chat" component={Chat} /> */}
 						<Drawer.Screen name="Home" component={Home} />
 						<Drawer.Screen
-							options={{ drawItemStyle: { height: 0 } }}
 							name="Item"
 							component={Item}
+							options={{ drawerItemStyle: { display: 'none' } }}
 						/>
 						<Drawer.Screen name="Add Item" component={AddItem} />
 						<Drawer.Screen name="Chat List" component={ChatList} />
+						<Drawer.Screen name="Chat" component={Chat} options={{ drawerItemStyle: { display: 'none' } }}/>
 					</Drawer.Navigator>
 				</NavigationContainer>
 			) : (

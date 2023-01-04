@@ -26,6 +26,10 @@ export default function Home({ navigation }) {
 		});
 	}, []);
 
+	items.sort((a, b) => {
+		return a.id < b.id
+	})
+
 	const calculateTimeRemaining = (unixEndTime) => {
 		const today = Date.now();
 		let delta = Math.abs(unixEndTime - today) / 1000;
@@ -38,9 +42,9 @@ export default function Home({ navigation }) {
 
 		let timeout = "";
 		if (days > 0) {
-			timeout = `${days} days, ${hours} hours and ${minutes} minutes remaining`;
+			timeout = `${days} D | ${hours} H | ${minutes} M`;
 		} else if (days < 1) {
-			timeout = `${hours} hrs & ${minutes} mins remaining`;
+			timeout = `${hours} H | ${minutes} M`;
 		} else if (days < 1 && hours < 1) {
 			timeout = `${minutes} minutes remaining`;
 		}
@@ -55,6 +59,7 @@ export default function Home({ navigation }) {
 				{isLoading ? (
 					<Text>Loading Items</Text>
 				) : (
+					
 					items.map((item) => {
 						const timeout = calculateTimeRemaining(item.endDate);
 						return (

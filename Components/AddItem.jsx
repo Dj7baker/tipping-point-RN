@@ -7,18 +7,20 @@ import {
 	Image,
 	ScrollView,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { ErrorMessage, Formik } from "formik";
 import { postItem } from "../api";
 import { Picker } from "@react-native-picker/picker";
 import * as ImagePicker from "expo-image-picker";
 import { NavigationHelpersContext } from "@react-navigation/native";
+import { UserContext } from "../Context/UserContext";
 
 export default function AddItem({ navigation }) {
 	const [condition, setCondition] = useState();
 	const [endDate, setEndDate] = useState("259200000");
 	const [image, setImage] = useState(null);
-
+	const { signedIn } = useContext(UserContext);
+	console.log(signedIn.user.uid);
 	const pickImage = async () => {
 		// No permissions request is necessary for launching the image library
 		let result = await ImagePicker.launchImageLibraryAsync({
@@ -93,6 +95,7 @@ export default function AddItem({ navigation }) {
 							condition: condition,
 							date: new Date(),
 							endDate: today + itemExpiry,
+							user_id: signedIn.user.uid
 						};
 
 						postItem(newItem).then((result) => {

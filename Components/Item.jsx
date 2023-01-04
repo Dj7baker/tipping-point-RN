@@ -1,4 +1,4 @@
-import { Text, View, Image, StyleSheet, Pressable } from "react-native";
+import { Text, View, Image, StyleSheet, Pressable, Button } from "react-native";
 import { useState, useEffect, useContext } from "react";
 import { getItemById } from "../api";
 import { UserContext } from "../Context/UserContext";
@@ -9,7 +9,7 @@ export default function Item({ route, navigation }) {
 
 	const [item, setItem] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
-
+console.log('item component', signedIn.user.email);
 	useEffect(() => {
 		getItemById(item_id).then((result) => {
 			setItem(result);
@@ -20,6 +20,7 @@ export default function Item({ route, navigation }) {
 		<Text>Loading Item</Text>
 	) : (
 		<View style={styles.card}>
+			<Button title='Back' onPress={() => navigation.navigate("Home")} />
 			<Text
 				style={{
 					fontSize: "24",
@@ -29,7 +30,7 @@ export default function Item({ route, navigation }) {
 			>
 				{item.title}
 			</Text>
-			<Text>{signedIn ? "I am signed in :)" : "I am NOT signed in :("}</Text>
+			{/* <Text>{signedIn ? "I am signed in :)" : "I am NOT signed in :("}</Text> */}
 			<Image
 				source={{ uri: item.image }}
 				style={{
@@ -50,8 +51,11 @@ export default function Item({ route, navigation }) {
 				style={styles.button}
 				onPress={() => {
 					if (signedIn) {
-						navigation.replace("Chat", {
-							chatName: `${item.id}+${signedIn.user.uid}`,
+						console.log(item.user_id);
+						navigation.jumpTo("Chat", {
+							// chatName: `${item.id}+${signedIn.user.uid}`,
+							chatName: `${item.user_id}+${signedIn.user.uid}`,
+
 						});
 					} else {
 						navigation.navigate("Login");

@@ -27,3 +27,13 @@ export const postItem = (obj) => {
 		return res.data;
 	});
 };
+
+export const postUser = (obj) => {
+	return tippingpointApi.post('/users', obj).then((res) => {
+		return res.data
+	})
+}
+
+
+
+
