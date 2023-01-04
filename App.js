@@ -34,6 +34,8 @@ function HomeScreen({ navigation }) {
 	);
 }
 
+const Stack = createNativeStackNavigator();
+
 function InitialLogin() {
 	const [displayLogin, setDisplayLogin] = React.useState(false);
 	const [displayRegister, setDisplayRegister] = React.useState(false);
@@ -71,12 +73,16 @@ function MainApp() {
 			{signedIn ? (
 				<NavigationContainer>
 					<Drawer.Navigator initialRouteName="Home">
-						<Drawer.Screen name="Welcome" component={HomeScreen} />
+						<Drawer.Screen name="Welcome" component={Home} />
 						{/* <Drawer.Screen name="Register" component={Register} />
 						<Drawer.Screen name="Login" component={Login} /> */}
-						<Drawer.Screen name="Chat" component={Chat} />
-						<Drawer.Screen name="View Items" component={Home} />
-						<Drawer.Screen name="Item" component={Item} />
+						{/* <Drawer.Screen name="Chat" component={Chat} /> */}
+						<Drawer.Screen name="Home" component={Home} />
+						<Drawer.Screen
+							options={{ drawItemStyle: { height: 0 } }}
+							name="Item"
+							component={Item}
+						/>
 						<Drawer.Screen name="Add Item" component={AddItem} />
 						<Drawer.Screen name="Chat List" component={ChatList} />
 					</Drawer.Navigator>
