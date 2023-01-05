@@ -3,6 +3,7 @@ import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 import { auth } from "../firebase";
 import { signOut } from "firebase/auth";
 import { UserContext } from "../Context/UserContext";
+import { Avatar } from "react-native-elements";
 
 export default function Header() {
 	const { setSignedIn, signedIn } = useContext(UserContext);
@@ -19,8 +20,20 @@ export default function Header() {
 
 	return (
 		<View style={styles.header}>
-			<Text style={styles.text} />
+			{signedIn ? (
+				<View style={{ marginLeft: 20 }}>
+					<Avatar
+						rounded
+						source={{
+							uri: signedIn?.dbUser?.avatar,
+						}}
+					/>
+				</View>
+			) : (
+				<Text style={styles.text} />
+			)}
 			<Text style={styles.title}>Tipping Point</Text>
+
 			{signedIn ? (
 				<TouchableOpacity onPress={() => signOutNow()}>
 					<Text style={{ color: "white", fontWeight: "bold" }}>Logout</Text>

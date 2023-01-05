@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import {
 	View,
 	Text,
@@ -7,50 +7,48 @@ import {
 	StyleSheet,
 	Image,
 } from "react-native";
-import { getChatList } from "../api";
+// import { getChatList } from "../api";
+import { UserContext } from "../Context/UserContext";
 
 function ChatList({ navigation }) {
 	const [chatList, setChatList] = useState([]);
-	const [isLoading, setIsLoading] = useState(true);
+	const { signedIn } = useContext(UserContext);
 
 	useEffect(() => {
-		getChatList().then((result) => {
-			setChatList(result);
-			setIsLoading(false);
-		});
+		const { dbUser } = signedIn;
+		console.log("dbUser: ", dbUser);
+
+		setChatList(dbUser.chats);
 	}, []);
 
-	console.log(chatList);
+	console.log("chatList: ", chatList);
 
 	return (
 		<ScrollView>
 			<View>
-				{isLoading ? (
-					<Text>Loading Chats</Text>
-				) : (
-					chatList.map((chat) => {
-						return (
-							<Pressable
-								key={chat.id}
-								style={styles.card}
-								onPress={() => {
-									navigation.navigate("Chat", { chatName: chat.id });
+				{chatList.map((chat) => {
+					return (
+						<Pressable
+							key={chat.chatName}
+							style={styles.card}
+							onPress={() => {
+								navigation.navigate("Chat", { chatName: chat.chatName });
+							}}
+						>
+							<Image
+								source={{ uri: chat.chateeAvatar }}
+								style={{
+									width: 100,
+									height: 100,
+									borderWidth: 1,
+									borderRadius: 5,
+									borderColor: "#bebebe",
 								}}
-							>
-								<Image
-									source={{ uri: chat.image }}
-									style={{
-										width: 100,
-										height: 100,
-										borderWidth: 1,
-										borderRadius: 5,
-										borderColor: "#bebebe",
-									}}
-								/>
-							</Pressable>
-						);
-					})
-				)}
+							/>
+							<Text>{chat.chateeName}</Text>
+						</Pressable>
+					);
+				})}
 			</View>
 		</ScrollView>
 	);

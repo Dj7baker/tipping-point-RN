@@ -3,36 +3,80 @@ import React, {
 	useCallback,
 	useState,
 	useLayoutEffect,
+	useContext,
 } from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import { Avatar } from "react-native-elements";
 import { auth, db } from "../firebase";
-import { signOut } from "firebase/auth";
 import { GiftedChat } from "react-native-gifted-chat";
 import {
 	collection,
 	addDoc,
-	getDocs,
 	query,
 	orderBy,
 	onSnapshot,
 } from "firebase/firestore";
+import { UserContext } from "../Context/UserContext";
+import { patchUserChat, getUserById } from "../api";
 
 const Chat = ({ navigation, route }) => {
 	const { chatName } = route.params;
+	const { setSignedIn, signedIn } = useContext(UserContext);
+	const [chatInfo, setChatInfo] = useState({});
+	const {
+		dbUser: { chats },
+	} = signedIn;
 
-	console.log(chatName);
+	useEffect(() => {
+		async function runChat() {
+			const thisChat = chats.find((e) => e.chatName === chatName);
+			console.log("GOT TO USE EFFECT", chats, thisChat);
+
+			if (!thisChat) {
+				const chatUsersIdArray = chatName?.split("+");
+				const listerReq = await getUserById(chatUsersIdArray[0]);
+				setChatInfo({
+					chatName,
+					chateeAvatar: listerReq.avatar,
+					chateeName: listerReq.name,
+				});
+
+				await patchUserChat(chatUsersIdArray[0], {
+					chatName,
+					chateeAvatar: signedIn.dbUser.avatar,
+					chateeName: signedIn.dbUser.name,
+				});
+				await patchUserChat(chatUsersIdArray[1], {
+					chatName,
+					chateeAvatar: listerReq.avatar,
+					chateeName: listerReq.name,
+				});
+				setSignedIn({
+					...signedIn,
+					dbUser: {
+						...signedIn.dbUser,
+						chats: [
+							...signedIn.dbUser.chats,
+							{
+								chatName,
+								chateeAvatar: listerReq.avatar,
+								chateeName: listerReq.name,
+							},
+						],
+					},
+				});
+			} else {
+				console.log("GOT TO ELSE ", thisChat);
+				setChatInfo(thisChat);
+			}
+		}
+		runChat();
+	}, []);
+
+	// Need a useEffect that checks the user.chat to see if the chatName is listed in the array. If it is listed then no further action needed. If not, then a post request needs to be made to update both the current signed in user, and the item listed user, user.chat with this chatName.
+
 	const [messages, setMessages] = useState([]);
-	// const signOutNow = () => {
-	// 	signOut(auth)
-	// 		.then(() => {
-	// 			// Sign-out successful.
-	// 			navigation.replace("Login");
-	// 		})
-	// 		.catch((error) => {
-	// 			// An error happened.
-	// 		});
-	// };
+
 	useLayoutEffect(() => {
 		navigation.setOptions({
 			headerLeft: () => (
@@ -40,7 +84,7 @@ const Chat = ({ navigation, route }) => {
 					<Avatar
 						rounded
 						source={{
-							uri: auth?.currentUser?.photoURL,
+							uri: chatInfo?.chateeAvatar,
 						}}
 					/>
 				</View>
@@ -50,10 +94,8 @@ const Chat = ({ navigation, route }) => {
 					style={{
 						marginRight: 10,
 					}}
-					// onPress={signOutNow}
 					onPress={() => navigation.navigate("Home")}
 				>
-					{/* <Text>logout</Text> */}
 					<Text>Home</Text>
 				</TouchableOpacity>
 			),
@@ -84,6 +126,8 @@ const Chat = ({ navigation, route }) => {
 
 		addDoc(collection(db, `${chatName}`), { _id, createdAt, text, user });
 	}, []);
+
+	console.log("chatInfo: ", chatInfo);
 
 	return (
 		<GiftedChat

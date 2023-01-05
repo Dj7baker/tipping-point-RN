@@ -16,6 +16,13 @@ export const getChatList = () => {
 	});
 };
 
+export const getUserById = (id) => {
+	return tippingpointApi.get(`/users/${id}`).then((res) => {
+		console.log("res: ", res);
+		return res.data;
+	});
+};
+
 export const getItemById = (id) => {
 	return tippingpointApi.get(`/items/${id}`).then((res) => {
 		return res.data;
@@ -33,6 +40,7 @@ export const postUser = (obj) => {
 		return res.data;
 	});
 };
+
 export const patchItem = (id) => {
 	return tippingpointApi
 		.get(`/items/${id}`)
@@ -43,6 +51,21 @@ export const patchItem = (id) => {
 		})
 		.then((res) => {
 			return tippingpointApi.put(`/items/${id}`, res).then((res) => {
+				return res.data;
+			});
+		});
+};
+
+export const patchUserChat = (id, chat) => {
+	return tippingpointApi
+		.get(`/users/${id}`)
+		.then((res) => {
+			const user = res.data;
+			user.chats.push(chat);
+			return user;
+		})
+		.then((res) => {
+			return tippingpointApi.put(`/users/${id}`, res).then((res) => {
 				return res.data;
 			});
 		});

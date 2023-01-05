@@ -50,7 +50,7 @@ function InitialLogin() {
 							setDisplayLogin(true);
 						}}
 					>
-						<Text style={styles.buttonText}>Login</Text>
+						<Text style={styles.buttonText}>Login or Register</Text>
 					</TouchableOpacity>
 				</>
 			) : (
@@ -81,11 +81,15 @@ function MainApp() {
 						<Drawer.Screen
 							name="Item"
 							component={Item}
-							options={{ drawerItemStyle: { display: 'none' } }}
+							options={{ drawerItemStyle: { display: "none" } }}
 						/>
 						<Drawer.Screen name="Add Item" component={AddItem} />
 						<Drawer.Screen name="Chat List" component={ChatList} />
-						<Drawer.Screen name="Chat" component={Chat} options={{ drawerItemStyle: { display: 'none' } }}/>
+						<Drawer.Screen
+							name="Chat"
+							component={Chat}
+							options={{ drawerItemStyle: { display: "none" } }}
+						/>
 					</Drawer.Navigator>
 				</NavigationContainer>
 			) : (

@@ -1,88 +1,273 @@
 {
-  "chats": [
-    {
-      "id": "1+ZCi4DBeptPgcoXXLojIDEWyu8lK2",
-      "title": "Washing Machine",
-      "name": "Dj",
-      "image": "https://www.appliancesdirect.co.uk/Images/783069251WAN28281GB_1_Supersize.jpg?v=40"
-    },
-    {
-      "id": "2+ZCi4DBeptPgcoXXLojIDEWyu8lK2",
-      "title": "Microwave",
-      "name": "Mo",
-      "image": "https://www.ikea.com/gb/en/images/products/tillreda-microwave-oven-white__1076734_pe856842_s5.jpg?f=s"
-    }
-  ],
-  "users": [
-    {
-      "email": "Cat@cat.com",
-      "id": 1
-    },
-    {
-      "id": "uPXawEKlXMOzg3cuji9I3x2Mu4z1",
-      "email": "Test4@test.com"
-    }
-  ],
-  "items": [
-    {
-      "title": "A toaster",
-      "description": "pre-owned bread heating device.",
-      "likes": 2,
-      "condition": "Used",
-      "date": "2022-12-21T10:44:23.153Z",
-      "endDate": 1671878663147,
-      "id": 1,
-      "image": "https://m.media-amazon.com/images/I/61fr-ijEg9L.jpg"
-    },
-    {
-      "title": "Scratch Post",
-      "description": "partially scratched castle for cats",
-      "likes": 2,
-      "condition": "Used",
-      "date": "2022-12-21T11:04:24.940Z",
-      "endDate": 1672225464938,
-      "id": 2,
-      "image": "https://cdn.agradiservices.net/products/555x555/bz-0408849.eebffd.jpg"
-    },
-    {
-      "title": "A bike",
-      "description": "Two wheels and a seat, fron wheel punctured",
-      "likes": 0,
-      "condition": "Used",
-      "date": "2022-12-21T13:41:10.831Z",
-      "endDate": 1671889270831,
-      "id": 4,
-      "image": "https://surlybikes.com/uploads/pages/Skidloader_Web_Home_Banner_1500x1000_VF.jpg"
-    },
-    {
-      "title": "Microwave",
-      "description": "uses harmful radiaiton to heat up food",
-      "likes": 0,
-      "condition": "Used",
-      "date": "2022-12-21T14:08:12.662Z",
-      "endDate": 1671718092662,
-      "id": 5,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/6/65/Microwave_2022.jpg"
-    },
-    {
-      "title": "Crockery",
-      "description": "",
-      "likes": 0,
-      "condition": "Used",
-      "date": "2022-12-22T08:48:50.434Z",
-      "endDate": 1672303730434,
-      "id": 6,
-      "image": "https://4.imimg.com/data4/MB/MI/MY-6389443/crockery-set-500x500.jpg"
-    },
-    {
-      "title": "Dressing Gown",
-      "description": "",
-      "likes": 2,
-      "condition": "Upcycle Project",
-      "date": "2023-01-04T12:00:32.648Z",
-      "endDate": 1673092832648,
-      "id": 7,
-      "image": "https://i.pinimg.com/originals/7c/a6/23/7ca62354760b8fa91e150dd3dffea0a4.jpg"
-    }
-  ]
+	"chats": [
+		{
+			"id": "1+ZCi4DBeptPgcoXXLojIDEWyu8lK2",
+			"title": "Washing Machine",
+			"name": "Dj",
+			"image": "https://www.appliancesdirect.co.uk/Images/783069251WAN28281GB_1_Supersize.jpg?v=40"
+		},
+		{
+			"id": "2+ZCi4DBeptPgcoXXLojIDEWyu8lK2",
+			"title": "Microwave",
+			"name": "Mo",
+			"image": "https://www.ikea.com/gb/en/images/products/tillreda-microwave-oven-white__1076734_pe856842_s5.jpg?f=s"
+		}
+	],
+	"users": [
+		{
+			"email": "Cat@cat.com",
+			"id": 1,
+			"chats": [],
+			"listedItems": [
+				"Not needed unless user can view or edit his own listed items"
+			]
+		},
+		{
+			"id": "uPXawEKlXMOzg3cuji9I3x2Mu4z1",
+			"email": "Test4@test.com"
+		},
+		{
+			"id": "qGLT9bEyUBXXbwhiz0X4PK9dXOR2",
+			"email": "Kk@k.com",
+			"chats": ["Random chat"]
+		},
+		{
+			"id": "iZgAA4H8f4ckwXQKCQbzONvXdmq1",
+			"email": "Dj@dj.com"
+		},
+		{
+			"id": "HE7Tr2GtOZV5PEQEiJvGHU0tCi22",
+			"email": "Dj@hotmail.com"
+		},
+		{
+			"id": "WMGlB3oHkvUnra8q7nfFVIvtMop2",
+			"email": "Iron@man.com",
+			"chats": [
+				{
+					"chatName": "p58xvPGAkUZqgwoR0kWf4WCfLUy1+WMGlB3oHkvUnra8q7nfFVIvtMop2",
+					"chateeAvatar": "https://scholars.huji.ac.il/sites/default/files/styles/profile_full/public/yonatantest/files/legolastdos.jpg.jpg?m=1424778114&itok=HpB_4Sd3",
+					"chateeName": "Legolas"
+				},
+				{
+					"chatName": "WMGlB3oHkvUnra8q7nfFVIvtMop2+p7i41pltAxW0Gw7FcBwQacTzT1D3",
+					"chateeAvatar": "https://pbs.twimg.com/profile_images/1295423449003950080/2jEkvt7n_400x400.jpg",
+					"chateeName": "Taetae"
+				},
+				{
+					"chatName": "WMGlB3oHkvUnra8q7nfFVIvtMop2+tadGNuw8xSffPQ2bvQINSREtozm1",
+					"chateeAvatar": "https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest?cb=20210802113447&path-prefix=tr",
+					"chateeName": "Hi"
+				}
+			],
+			"listedItems": [],
+			"avatar": "https://cdn.britannica.com/49/182849-050-4C7FE34F/scene-Iron-Man.jpg"
+		},
+		{
+			"id": "WZq716V2HefxVzqnX0yMqvapN133",
+			"email": "Thanos@world.com",
+			"chats": ["WMGlB3oHkvUnra8q7nfFVIvtMop2+WZq716V2HefxVzqnX0yMqvapN133"],
+			"listedItems": [],
+			"avatar": "https://img.redbull.com/images/c_crop,x_279,y_0,h_640,w_512/c_fill,w_400,h_540/q_auto:low,f_auto/redbullcom/2017/12/04/fc54a713-bafa-4b08-b74c-d098abf19c93/marvel-avengers-thanos"
+		},
+		{
+			"id": "dEe2PtLNQFPfJ2htlfNCVOUFRIx2",
+			"email": "Gandalf@gray.com",
+			"chats": [
+				{
+					"chatName": "p58xvPGAkUZqgwoR0kWf4WCfLUy1+dEe2PtLNQFPfJ2htlfNCVOUFRIx2",
+					"chateeAvatar": "https://scholars.huji.ac.il/sites/default/files/styles/profile_full/public/yonatantest/files/legolastdos.jpg.jpg?m=1424778114&itok=HpB_4Sd3",
+					"chateeName": "Legolas"
+				}
+			],
+			"listedItems": [],
+			"avatar": "https://static.wikia.nocookie.net/lotr/images/8/8d/Gandalf-2.jpg/revision/latest?cb=20130209172436",
+			"name": "Gandalf"
+		},
+		{
+			"id": "p58xvPGAkUZqgwoR0kWf4WCfLUy1",
+			"email": "Legolas@elf.com",
+			"chats": [
+				{
+					"chatName": "p58xvPGAkUZqgwoR0kWf4WCfLUy1+dEe2PtLNQFPfJ2htlfNCVOUFRIx2",
+					"chateeAvatar": "https://static.wikia.nocookie.net/lotr/images/8/8d/Gandalf-2.jpg/revision/latest?cb=20130209172436",
+					"chateeName": "Gandalf"
+				},
+				{
+					"chatName": "p58xvPGAkUZqgwoR0kWf4WCfLUy1+WMGlB3oHkvUnra8q7nfFVIvtMop2",
+					"chateeAvatar": "https://cdn.britannica.com/49/182849-050-4C7FE34F/scene-Iron-Man.jpg"
+				},
+				{
+					"chatName": "p58xvPGAkUZqgwoR0kWf4WCfLUy1+p7i41pltAxW0Gw7FcBwQacTzT1D3",
+					"chateeAvatar": "https://pbs.twimg.com/profile_images/1295423449003950080/2jEkvt7n_400x400.jpg",
+					"chateeName": "Taetae"
+				},
+				{
+					"chatName": "p58xvPGAkUZqgwoR0kWf4WCfLUy1+A0mQ6qwgwKTrE6A2K93BkZa6Asr2",
+					"chateeAvatar": "https://lumiere-a.akamaihd.net/v1/images/pp_baymax_herobanner_mobile_22586_56a97a34.jpeg?region=0,0,640,480",
+					"chateeName": "Baymax"
+				}
+			],
+			"listedItems": [],
+			"avatar": "https://scholars.huji.ac.il/sites/default/files/styles/profile_full/public/yonatantest/files/legolastdos.jpg.jpg?m=1424778114&itok=HpB_4Sd3",
+			"name": "Legolas"
+		},
+		{
+			"id": "p7i41pltAxW0Gw7FcBwQacTzT1D3",
+			"email": "Tae@bts.com",
+			"chats": [
+				{
+					"chatName": "p58xvPGAkUZqgwoR0kWf4WCfLUy1+p7i41pltAxW0Gw7FcBwQacTzT1D3",
+					"chateeAvatar": "https://scholars.huji.ac.il/sites/default/files/styles/profile_full/public/yonatantest/files/legolastdos.jpg.jpg?m=1424778114&itok=HpB_4Sd3",
+					"chateeName": "Legolas"
+				},
+				{
+					"chatName": "WMGlB3oHkvUnra8q7nfFVIvtMop2+p7i41pltAxW0Gw7FcBwQacTzT1D3",
+					"chateeAvatar": "https://cdn.britannica.com/49/182849-050-4C7FE34F/scene-Iron-Man.jpg"
+				},
+				{
+					"chatName": "p7i41pltAxW0Gw7FcBwQacTzT1D3+hbM2JarVAGWXvQSYLp0ehY0ooyz1",
+					"chateeAvatar": "https://lumiere-a.akamaihd.net/v1/images/ct_frozen_elsa_18466_22a50822.jpeg?region=0,0,600,600",
+					"chateeName": "Elsa"
+				}
+			],
+			"listedItems": [],
+			"avatar": "https://pbs.twimg.com/profile_images/1295423449003950080/2jEkvt7n_400x400.jpg",
+			"name": "Taetae"
+		},
+		{
+			"id": "hbM2JarVAGWXvQSYLp0ehY0ooyz1",
+			"email": "Elsa@frozen.com",
+			"chats": [
+				{
+					"chatName": "p7i41pltAxW0Gw7FcBwQacTzT1D3+hbM2JarVAGWXvQSYLp0ehY0ooyz1",
+					"chateeAvatar": "https://pbs.twimg.com/profile_images/1295423449003950080/2jEkvt7n_400x400.jpg",
+					"chateeName": "Taetae"
+				}
+			],
+			"listedItems": [],
+			"avatar": "https://lumiere-a.akamaihd.net/v1/images/ct_frozen_elsa_18466_22a50822.jpeg?region=0,0,600,600",
+			"name": "Elsa"
+		},
+		{
+			"id": "A0mQ6qwgwKTrE6A2K93BkZa6Asr2",
+			"email": "Baymax@pixar.com",
+			"chats": [
+				{
+					"chatName": "p58xvPGAkUZqgwoR0kWf4WCfLUy1+A0mQ6qwgwKTrE6A2K93BkZa6Asr2",
+					"chateeAvatar": "https://scholars.huji.ac.il/sites/default/files/styles/profile_full/public/yonatantest/files/legolastdos.jpg.jpg?m=1424778114&itok=HpB_4Sd3",
+					"chateeName": "Legolas"
+				}
+			],
+			"listedItems": [],
+			"avatar": "https://lumiere-a.akamaihd.net/v1/images/pp_baymax_herobanner_mobile_22586_56a97a34.jpeg?region=0,0,640,480",
+			"name": "Baymax"
+		},
+		{
+			"id": "tadGNuw8xSffPQ2bvQINSREtozm1",
+			"email": "Hi@hi.com",
+			"chats": [
+				{
+					"chatName": "WMGlB3oHkvUnra8q7nfFVIvtMop2+tadGNuw8xSffPQ2bvQINSREtozm1",
+					"chateeAvatar": "https://cdn.britannica.com/49/182849-050-4C7FE34F/scene-Iron-Man.jpg"
+				}
+			],
+			"listedItems": [],
+			"avatar": "https://static.wikia.nocookie.net/disney/images/b/bf/Mickey_Mouse_Disney_1.png/revision/latest?cb=20210802113447&path-prefix=tr",
+			"name": "Hi"
+		}
+	],
+	"items": [
+		{
+			"title": "A toaster",
+			"description": "pre-owned bread heating device.",
+			"likes": 2,
+			"condition": "Used",
+			"date": "2022-12-21T10:44:23.153Z",
+			"endDate": 1671878663147,
+			"id": 1,
+			"image": "https://m.media-amazon.com/images/I/61fr-ijEg9L.jpg"
+		},
+		{
+			"title": "Scratch Post",
+			"description": "partially scratched castle for cats",
+			"likes": 2,
+			"condition": "Used",
+			"date": "2022-12-21T11:04:24.940Z",
+			"endDate": 1672225464938,
+			"id": 2,
+			"image": "https://cdn.agradiservices.net/products/555x555/bz-0408849.eebffd.jpg",
+			"userId": ""
+		},
+		{
+			"title": "A bike",
+			"description": "Two wheels and a seat, fron wheel punctured",
+			"likes": 0,
+			"condition": "Used",
+			"date": "2022-12-21T13:41:10.831Z",
+			"endDate": 1671889270831,
+			"id": 4,
+			"image": "https://surlybikes.com/uploads/pages/Skidloader_Web_Home_Banner_1500x1000_VF.jpg"
+		},
+		{
+			"title": "Microwave",
+			"description": "uses harmful radiaiton to heat up food",
+			"likes": 1,
+			"condition": "Used",
+			"date": "2022-12-21T14:08:12.662Z",
+			"endDate": 1671718092662,
+			"id": 5,
+			"image": "https://upload.wikimedia.org/wikipedia/commons/6/65/Microwave_2022.jpg"
+		},
+		{
+			"title": "Crockery",
+			"description": "",
+			"likes": 0,
+			"condition": "Used",
+			"date": "2022-12-22T08:48:50.434Z",
+			"endDate": 1672303730434,
+			"id": 6,
+			"image": "https://4.imimg.com/data4/MB/MI/MY-6389443/crockery-set-500x500.jpg"
+		},
+		{
+			"title": "Dressing Gown",
+			"description": "",
+			"likes": 3,
+			"condition": "Upcycle Project",
+			"date": "2023-01-04T12:00:32.648Z",
+			"endDate": 1673092832648,
+			"id": 7,
+			"image": "https://i.pinimg.com/originals/7c/a6/23/7ca62354760b8fa91e150dd3dffea0a4.jpg"
+		},
+		{
+			"title": "Fanta",
+			"description": "Ornage",
+			"likes": 0,
+			"date": "2023-01-05T08:26:08.732Z",
+			"endDate": 1673166368732,
+			"user_id": "eWOd6avUv1WqqxJG2FJKSJn2F7l1",
+			"id": 8,
+			"image": "http://t0.gstatic.com/images?q=tbn:ANd9GcT7J2lL77_Pf7mEEA_J2x5iMF9Aw84m_595yAf1wXSlJCGx10HM"
+		},
+		{
+			"title": "Thanos Glove",
+			"description": "Glove with high energy",
+			"likes": 5,
+			"condition": "Used",
+			"date": "2023-01-05T10:54:52.985Z",
+			"endDate": 1673520892985,
+			"user_id": "WMGlB3oHkvUnra8q7nfFVIvtMop2",
+			"id": 9,
+			"image": "http://cdn.shopify.com/s/files/1/2270/3643/products/20221017095109_1024x.jpg?v=1666926013"
+		},
+		{
+			"title": "Arrow",
+			"description": "Made by elves",
+			"likes": 10,
+			"date": "2023-01-05T12:03:17.186Z",
+			"endDate": 1673179397186,
+			"user_id": "p58xvPGAkUZqgwoR0kWf4WCfLUy1",
+			"id": 10,
+			"image": "https://static.wikia.nocookie.net/skyrim_gamepedia/images/d/d1/ElvenArrow.png/revision/latest?cb=20111215180250"
+		}
+	]
 }

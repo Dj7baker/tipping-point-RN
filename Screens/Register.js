@@ -6,7 +6,6 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import axios from "axios";
 import { postUser } from "../api";
 
-
 const Register = ({ setDisplayRegister }) => {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
@@ -38,7 +37,14 @@ const Register = ({ setDisplayRegister }) => {
 					.catch((error) => {
 						alert(error.message);
 					});
-				const essentialUserData = { id: user.uid, email };
+				const essentialUserData = {
+					id: user.uid,
+					email,
+					chats: [],
+					listedItems: [],
+					avatar,
+					name,
+				};
 
 				postUser(essentialUserData);
 			})

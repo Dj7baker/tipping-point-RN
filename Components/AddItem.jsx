@@ -96,6 +96,8 @@ export default function AddItem({ navigation }) {
 							date: new Date(),
 							endDate: today + itemExpiry,
 							user_id: signedIn.user.uid,
+							image:
+								"https://static.nadirkitap.com/fotograf/914143/28/Efemera_202207031420149141431.jpg",
 						};
 
 						postItem(newItem).then((result) => {
